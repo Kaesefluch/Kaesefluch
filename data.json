@@ -1,0 +1,26 @@
+[
+  {
+    "from": "MC 1",
+    "to": "MC 2",
+    "videoLink": "https://www.youtube.com/watch?v=BEISPIEL1",
+    "timestamp": "12:45",
+    "date": "2024-01-15",
+    "thumbnail": ""
+  },
+  {
+    "from": "MC 2",
+    "to": "MC 3",
+    "videoLink": "https://www.youtube.com/watch?v=BEISPIEL2",
+    "timestamp": "08:30",
+    "date": "2024-02-20",
+    "thumbnail": ""
+  },
+  {
+    "from": "MC 3",
+    "to": "MC 4",
+    "videoLink": "https://www.youtube.com/watch?v=BEISPIEL3",
+    "timestamp": "15:12",
+    "date": "2024-03-10",
+    "thumbnail": ""
+  }
+]
