@@ -198,6 +198,28 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
+        .video-container {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            display: block;
+            border: none;
+        }
+
+        .origin-item {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+        }
+
+        .origin-item h3 {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
         .thumbnail {
             width: 100%;
             max-width: 300px;
@@ -344,6 +366,11 @@
             }
         }
 
+        function getYouTubeEmbedUrl(url) {
+            const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/);
+            return videoId ? `https://www.youtube.com/embed/${videoId[1]}?rel=0` : null;
+        }
+
         function renderTimeline(data) {
             // Umgekehrte Reihenfolge: neuste zuerst (oben)
             const reversedData = [...data].reverse();
@@ -352,13 +379,29 @@
             timeline.innerHTML = '';
 
             reversedData.forEach((item, index) => {
-                const isCurrentYear = index === 0;
+                const isCurrentYear = index === 0 && !item.origin;
                 const itemDiv = document.createElement('div');
                 itemDiv.className = `timeline-item ${isCurrentYear ? 'current' : ''}`;
 
                 let thumbnailHTML = '';
-                if (item.thumbnail) {
-                    thumbnailHTML = `<img src="${item.thumbnail}" alt="Thumbnail" class="thumbnail">`;
+                let embedHTML = '';
+                
+                if (item.origin) {
+                    // YouTube Embed für Origin Video
+                    const embedUrl = getYouTubeEmbedUrl(item.videoLink);
+                    if (embedUrl) {
+                        embedHTML = `
+                            <div class="video-container">
+                                <iframe width="100%" height="315" src="${embedUrl}" title="${item.title}" 
+                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen></iframe>
+                            </div>
+                        `;
+                    }
+                } else {
+                    if (item.thumbnail) {
+                        thumbnailHTML = `<img src="${item.thumbnail}" alt="Thumbnail" class="thumbnail">`;
+                    }
                 }
 
                 let currentLabel = '';
@@ -366,27 +409,44 @@
                     currentLabel = '<span class="label">🔥 AKTUELL 🔥</span>';
                 }
 
-                itemDiv.innerHTML = `
-                    <div class="content ${isCurrentYear ? 'current' : ''}">
-                        ${currentLabel}
-                        <div class="date">${new Date(item.date).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
-                        <div class="mc-names">
-                            <span class="mc">${item.from}</span>
-                            <span class="arrow">→</span>
-                            <span class="mc">${item.to}</span>
+                let originLabel = '';
+                if (item.origin) {
+                    originLabel = '<span class="label" style="background: #fbbf24;">⭐ URSPRUNG ⭐</span>';
+                }
+
+                if (item.origin) {
+                    itemDiv.innerHTML = `
+                        <div class="content origin-item">
+                            ${originLabel}
+                            <h3 style="margin: 10px 0; color: #f5576c;">${item.title}</h3>
+                            <div class="date">${new Date(item.date).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                            ${item.description ? `<p style="margin: 10px 0; font-size: 0.95em; color: #666;">${item.description}</p>` : ''}
+                            ${embedHTML}
                         </div>
-                        ${item.timestamp ? `<div class="timestamp">⏱️ ${item.timestamp}</div>` : ''}
-                        <a href="${item.videoLink}" target="_blank" class="video-link">🎥 Zum Video</a>
-                        ${thumbnailHTML}
-                    </div>
-                `;
+                    `;
+                } else {
+                    itemDiv.innerHTML = `
+                        <div class="content ${isCurrentYear ? 'current' : ''}">
+                            ${currentLabel}
+                            <div class="date">${new Date(item.date).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                            <div class="mc-names">
+                                <span class="mc">${item.from}</span>
+                                <span class="arrow">→</span>
+                                <span class="mc">${item.to}</span>
+                            </div>
+                            ${item.timestamp ? `<div class="timestamp">⏱️ ${item.timestamp}</div>` : ''}
+                            <a href="${item.videoLink}" target="_blank" class="video-link">🎥 Zum Video</a>
+                            ${thumbnailHTML}
+                        </div>
+                    `;
+                }
 
                 timeline.appendChild(itemDiv);
             });
 
-            // Update current badge
-            const current = data[data.length - 1];
-            document.getElementById('currentBadge').textContent = `🧀 ${current.to} 🧀`;
+            // Update current badge - skip origin items
+            const currentItem = data.filter(item => !item.origin)[data.filter(item => !item.origin).length - 1];
+            document.getElementById('currentBadge').textContent = `🧀 ${currentItem.to} 🧀`;
         }
 
         // Timeline beim Laden render
