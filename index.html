@@ -46,7 +46,6 @@
             padding: 20px 0;
         }
 
-        /* Mittellinie */
         .timeline::before {
             content: '';
             position: absolute;
@@ -66,12 +65,7 @@
 
         .timeline-item:nth-child(1) { animation-delay: 0.1s; }
         .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
-        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
 
-        /* Alternating left/right */
         .timeline-item:nth-child(odd) .content {
             margin-left: 0;
             margin-right: 52%;
@@ -84,7 +78,6 @@
             text-align: left;
         }
 
-        /* Dots on timeline */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -118,9 +111,12 @@
             border: 2px solid white;
         }
 
-        .content.current .label,
-        .content.current .date {
-            color: white;
+        .content.origin-item {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            text-align: left !important;
         }
 
         .mc-names {
@@ -198,110 +194,6 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        .video-container {
-            width: 100%;
-            margin-top: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .video-container iframe {
-            display: block;
-            border: none;
-        }
-
-        .origin-item {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 2px solid #f59e0b;
-        }
-
-        .origin-item h3 {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .internal-passes {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid #f59e0b;
-        }
-
-        .internal-passes h4 {
-            color: #d97706;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .pass-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 8px;
-        }
-
-        .mc-image {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .mc-image img {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            object-fit: cover;
-            border: 2px solid #ccc;
-            background: #e5e7eb;
-        }
-
-        .mc-image-name {
-            font-size: 0.85em;
-            font-weight: 600;
-            text-align: center;
-            color: #374151;
-        }
-
-        .pass-item .mc-image.to-mc img {
-            border-color: #f5576c;
-            border-width: 3px;
-            box-shadow: 0 0 0 2px rgba(245, 87, 108, 0.2);
-        }
-
-        .pass-timestamp {
-            flex-shrink: 0;
-            font-size: 0.9em;
-            font-weight: bold;
-            color: #667eea;
-            text-align: center;
-        }
-
-        .pass-arrow {
-            font-size: 1.5em;
-            color: #667eea;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 768px) {
-            .pass-item {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            .mc-image img {
-                width: 60px;
-                height: 60px;
-            }
-
-            .mc-image-name {
-                font-size: 0.8em;
-            }
-        }
-
         .thumbnail {
             width: 100%;
             max-width: 300px;
@@ -324,13 +216,108 @@
             font-weight: bold;
         }
 
+        .video-container {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            display: block;
+            border: none;
+        }
+
+        .origin-passes {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f59e0b;
+        }
+
+        .origin-passes h4 {
+            color: #d97706;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .origin-pass-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0 8px 10px;
+            font-size: 0.95em;
+            border-bottom: 1px solid #fef3c7;
+            border-left: 4px solid transparent;
+            transition: background-color 0.3s;
+        }
+
+        .origin-pass-item:last-child {
+            border-bottom: none;
+        }
+
+        .pass-time {
+            font-weight: bold;
+            color: #d97706;
+            min-width: 60px;
+        }
+
+        .pass-names {
+            flex: 1;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pass-mc-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .pass-arrow {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .wiki-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .wiki-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .pass-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .pass-link:hover {
+            color: #764ba2;
+        }
+
+        .content.origin-item h3 {
+            color: #d97706;
+            margin: 10px 0;
+        }
+
+        .content.origin-item .label {
+            background: #f59e0b;
+            margin-bottom: 15px;
+        }
+
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes slideIn {
@@ -358,44 +345,22 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
-            }
-            50% {
-                box-shadow: 0 4px 25px rgba(245, 87, 108, 0.8);
-            }
+            0%, 100% { box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(245, 87, 108, 0.8); }
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item::before {
-                left: 20px;
-            }
-
+            .header h1 { font-size: 2em; }
+            .timeline::before { left: 20px; }
+            .timeline-item::before { left: 20px; }
             .timeline-item:nth-child(odd) .content,
             .timeline-item:nth-child(even) .content {
                 margin-left: 60px;
                 margin-right: 0;
                 text-align: left;
             }
-
-            .timeline-item:nth-child(odd) .mc-names {
-                flex-direction: row;
-            }
-
-            .current-badge {
-                top: 10px;
-                right: 10px;
-                padding: 8px 16px;
-                font-size: 0.9em;
-            }
+            .timeline-item:nth-child(odd) .mc-names { flex-direction: row; }
+            .current-badge { top: 10px; right: 10px; padding: 8px 16px; font-size: 0.9em; }
         }
 
         .loading {
@@ -430,24 +395,6 @@
     </div>
 
     <script>
-        async function loadTimeline() {
-            try {
-                const response = await fetch('data.json');
-                if (!response.ok) throw new Error('Konnte data.json nicht laden');
-                
-                const data = await response.json();
-                renderTimeline(data);
-            } catch (error) {
-                console.error(error);
-                document.getElementById('timeline').innerHTML = `
-                    <div class="error">
-                        <p>❌ Fehler beim Laden der Daten</p>
-                        <p style="font-size: 0.9em; margin-top: 10px;">${error.message}</p>
-                    </div>
-                `;
-            }
-        }
-
         function getYouTubeEmbedUrl(url) {
             const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/);
             return videoId ? `https://www.youtube.com/embed/${videoId[1]}?rel=0` : null;
@@ -463,10 +410,25 @@
             return 0;
         }
 
+        function getMCImage(mcName) {
+            const imageMap = {
+                'Jamaika Klaus': 'images/Klaus.png',
+                'Şer': 'images/Ser.png',
+                'Stylz': 'images/Stylz.png',
+                'Jilly': 'images/Jilly.png',
+                'Bault': 'images/Bault.png',
+                'Broody': 'images/Broody.png',
+                'Mechthild': 'images/Mechthild.png',
+                'Tarek': 'images/Tarek.png',
+                'PapaTR': 'images/PapaTR.png',
+                'Burst': 'images/Burst.png',
+                'Ezra': 'images/Ezra.png'
+            };
+            return imageMap[mcName] || 'images/placeholder.png';
+        }
+
         function renderTimeline(data) {
-            // Umgekehrte Reihenfolge: neuste zuerst (oben)
             const reversedData = [...data].reverse();
-            
             const timeline = document.getElementById('timeline');
             timeline.innerHTML = '';
 
@@ -475,22 +437,10 @@
                 const itemDiv = document.createElement('div');
                 itemDiv.className = `timeline-item ${isCurrentYear ? 'current' : ''}`;
 
-                let thumbnailHTML = '';
-                let embedHTML = '';
-                
-                let currentLabel = '';
-                if (isCurrentYear) {
-                    currentLabel = '<span class="label">🔥 AKTUELL 🔥</span>';
-                }
-
-                let originLabel = '';
                 if (item.origin) {
-                    originLabel = '<span class="label" style="background: #fbbf24;">⭐ URSPRUNG ⭐</span>';
-                }
-
-                if (item.origin) {
-                    // YouTube Embed für Origin Video
+                    // Render Origin Item with internal passes
                     const embedUrl = getYouTubeEmbedUrl(item.videoLink);
+                    let embedHTML = '';
                     if (embedUrl) {
                         embedHTML = `
                             <div class="video-container">
@@ -500,19 +450,65 @@
                             </div>
                         `;
                     }
+
+                    let passesHTML = '';
+                    if (item.internalPasses && item.internalPasses.length > 0) {
+                        const reversedPasses = [...item.internalPasses].reverse();
+                        const passesContent = reversedPasses.map((pass, idx) => {
+                            const timestampSeconds = timeToSeconds(pass.timestamp);
+                            const videoUrl = item.videoLink.includes('?') 
+                                ? `${item.videoLink}&t=${timestampSeconds}`
+                                : `${item.videoLink}?t=${timestampSeconds}`;
+                            const isFirst = idx === 0;
+                            const isLast = idx === reversedPasses.length - 1;
+                            const bgColor = isFirst ? '#d1fae5' : isLast ? '#dcfce7' : 'transparent';
+                            const borderColor = isFirst ? '#10b981' : isLast ? '#84cc16' : 'transparent';
+                            return `
+                            <div class="origin-pass-item" style="background-color: ${bgColor}; border-left-color: ${borderColor};">
+                                <span class="pass-time">⏱️ ${pass.timestamp}</span>
+                                <span class="pass-names">
+                                    <img src="${getMCImage(pass.from)}" alt="${pass.from}" class="pass-mc-img">
+                                    ${pass.from}
+                                </span>
+                                <span class="pass-arrow">→</span>
+                                <span class="pass-names">
+                                    <img src="${getMCImage(pass.to)}" alt="${pass.to}" class="pass-mc-img">
+                                    ${pass.to}
+                                </span>
+                                <a href="${videoUrl}" target="_blank" class="pass-link">🔗</a>
+                            </div>
+                        `;
+                        }).join('');
+                        passesHTML = `
+                            <div class="origin-passes">
+                                <h4>📹 Übergaben im Video</h4>
+                                ${passesContent}
+                            </div>
+                        `;
+                    }
+
                     itemDiv.innerHTML = `
                         <div class="content origin-item">
-                            ${originLabel}
-                            <h3 style="margin: 10px 0; color: #f5576c;">${item.title}</h3>
+                            <span class="label">⭐ URSPRUNG ⭐</span>
+                            ${passesHTML}
+                            <h3>${item.title}</h3>
                             <div class="date">${new Date(item.date).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
-                            ${item.description ? `<p style="margin: 10px 0; font-size: 0.95em; color: #666;">${item.description}</p>` : ''}
+                            ${item.description ? `<p style="margin: 10px 0; font-size: 0.95em; color: #333;">${item.description}</p>` : ''}
                             ${embedHTML}
                         </div>
                     `;
                 } else {
+                    // Regular timeline item
+                    let currentLabel = '';
+                    if (isCurrentYear) {
+                        currentLabel = '<span class="label">🔥 AKTUELL 🔥</span>';
+                    }
+
+                    let thumbnailHTML = '';
                     if (item.thumbnail) {
                         thumbnailHTML = `<img src="${item.thumbnail}" alt="Thumbnail" class="thumbnail">`;
                     }
+
                     itemDiv.innerHTML = `
                         <div class="content ${isCurrentYear ? 'current' : ''}">
                             ${currentLabel}
@@ -523,7 +519,7 @@
                                 <span class="mc">${item.to}</span>
                             </div>
                             ${item.timestamp ? `<div class="timestamp">⏱️ ${item.timestamp}</div>` : ''}
-                            <a href="${item.videoLink}${item.timestamp ? '?t=' + timeToSeconds(item.timestamp) : ''}" target="_blank" class="video-link">🎥 Zum Video</a>
+                            <a href="${item.videoLink}" target="_blank" class="video-link">🎥 Zum Video</a>
                             ${thumbnailHTML}
                         </div>
                     `;
@@ -532,12 +528,31 @@
                 timeline.appendChild(itemDiv);
             });
 
-            // Update current badge - skip origin items
-            const currentItem = data.filter(item => !item.origin)[data.filter(item => !item.origin).length - 1];
-            document.getElementById('currentBadge').textContent = `🧀 ${currentItem.to} 🧀`;
+            // Update current badge
+            const nonOriginItems = data.filter(item => !item.origin);
+            if (nonOriginItems.length > 0) {
+                const current = nonOriginItems[nonOriginItems.length - 1];
+                document.getElementById('currentBadge').textContent = `🧀 ${current.to} 🧀`;
+            }
         }
 
-        // Timeline beim Laden render
+        async function loadTimeline() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error('Konnte data.json nicht laden');
+                const data = await response.json();
+                renderTimeline(data);
+            } catch (error) {
+                console.error(error);
+                document.getElementById('timeline').innerHTML = `
+                    <div class="error">
+                        <p>❌ Fehler beim Laden der Daten</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
         loadTimeline();
     </script>
 </body>

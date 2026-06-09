@@ -5,78 +5,144 @@
     "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
     "timestamp": "2:22",
     "date": "2024-01-01",
-    "description": "Das Ursprungsvideo - hier bekommt Jamaika Klaus den initialen Käsefluch gesetzt"
+    "description": "Das Ursprungsvideo - hier wird festgestellt, dass Jamaika Klaus den initialen <a href=\"https://gregs-tagebuch.fandom.com/de/wiki/K%C3%A4se\" target=\"_blank\" class=\"wiki-link\">Käsefluch</a> hat. Game on!",
+    "internalPasses": [
+      {
+        "from": "Jamaika Klaus",
+        "to": "Stylz",
+        "timestamp": "16:53"
+      },
+      {
+        "from": "Stylz",
+        "to": "Şer",
+        "timestamp": "16:55"
+      },
+      {
+        "from": "Şer",
+        "to": "Stylz",
+        "timestamp": "17:31"
+      },
+      {
+        "from": "Stylz",
+        "to": "Jamaika Klaus",
+        "timestamp": "17:33"
+      },
+      {
+        "from": "Jamaika Klaus",
+        "to": "Jilly",
+        "timestamp": "17:39"
+      },
+      {
+        "from": "Jilly",
+        "to": "Şer",
+        "timestamp": "18:06"
+      },
+      {
+        "from": "Şer",
+        "to": "Bault",
+        "timestamp": "18:14"
+      },
+      {
+        "from": "Bault",
+        "to": "Jamaika Klaus",
+        "timestamp": "18:16"
+      },
+      {
+        "from": "Jamaika Klaus",
+        "to": "Bault",
+        "timestamp": "19:14"
+      }
+    ]
   },
   {
-    "from": "Jamaika Klaus",
-    "to": "Stylz",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "16:53",
+    "origin": true,
+    "title": "Video 1 - Bault übernimmt 🎤",
+    "videoLink": "https://www.youtube.com/watch?v=DsL4ZW5tUi8",
     "date": "2024-01-01",
-    "thumbnail": ""
+    "description": "Das erste Video - Bault übernimmt den Käsefluch von Jamaika Klaus",
+    "internalPasses": [
+      {
+        "from": "Bault",
+        "to": "Broody",
+        "timestamp": "21:10"
+      },
+      {
+        "from": "Broody",
+        "to": "Bault",
+        "timestamp": "22:05"
+      }
+    ]
   },
   {
-    "from": "Stylz",
-    "to": "Şer",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "16:55",
+    "origin": true,
+    "title": "Video 2 - Mechthild tritt auf 💪",
+    "videoLink": "https://youtu.be/ANaAZpYetNc?si=3F5bq1285Vfg-dIV",
     "date": "2024-01-01",
-    "thumbnail": ""
+    "description": "Das zweite Video - Bault hat den Käsefluch",
+    "internalPasses": [
+      {
+        "from": "Bault",
+        "to": "Mechthild",
+        "timestamp": "23:47"
+      },
+      {
+        "from": "Mechthild",
+        "to": "Bault",
+        "timestamp": "25:51"
+      }
+    ]
   },
   {
-    "from": "Şer",
-    "to": "Stylz",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "17:31",
+    "origin": true,
+    "title": "Video 3 - Die Schlacht geht weiter ⚔️",
+    "videoLink": "https://youtu.be/4p8nmmJe_LY?si=FEEu5rcN8j1Q9Cjo",
     "date": "2024-01-01",
-    "thumbnail": ""
+    "description": "Das dritte Video - Bault beginnt mit dem Käsefluch",
+    "internalPasses": [
+      {
+        "from": "Bault",
+        "to": "Jilly",
+        "timestamp": "26:44"
+      },
+      {
+        "from": "Jilly",
+        "to": "PapaTR",
+        "timestamp": "26:53"
+      },
+      {
+        "from": "PapaTR",
+        "to": "Tarek",
+        "timestamp": "26:54"
+      },
+      {
+        "from": "Tarek",
+        "to": "PapaTR",
+        "timestamp": "27:57"
+      },
+      {
+        "from": "PapaTR",
+        "to": "Jilly",
+        "timestamp": "27:59"
+      },
+      {
+        "from": "Jilly",
+        "to": "Burst",
+        "timestamp": "29:45"
+      }
+    ]
   },
   {
-    "from": "Stylz",
-    "to": "Jamaika Klaus",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "17:33",
+    "origin": true,
+    "title": "Video 4 - Der Fluch geht weiter 🔥",
+    "videoLink": "https://youtu.be/sHX5nfq6WvA?si=B5dOVjpbcbP_Nxqu",
     "date": "2024-01-01",
-    "thumbnail": ""
-  },
-  {
-    "from": "Jamaika Klaus",
-    "to": "Jilly",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "17:39",
-    "date": "2024-01-01",
-    "thumbnail": ""
-  },
-  {
-    "from": "Jilly",
-    "to": "Şer",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "18:06",
-    "date": "2024-01-01",
-    "thumbnail": ""
-  },
-  {
-    "from": "Şer",
-    "to": "Bault",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "18:14",
-    "date": "2024-01-01",
-    "thumbnail": ""
-  },
-  {
-    "from": "Bault",
-    "to": "Jamaika Klaus",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "18:16",
-    "date": "2024-01-01",
-    "thumbnail": ""
-  },
-  {
-    "from": "Jamaika Klaus",
-    "to": "Bault",
-    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
-    "timestamp": "19:14",
-    "date": "2024-01-01",
-    "thumbnail": ""
+    "description": "Das vierte Video - Burst hat den Käsefluch",
+    "internalPasses": [
+      {
+        "from": "Burst",
+        "to": "Ezra",
+        "timestamp": "25:54"
+      }
+    ]
   }
 ]
