@@ -220,6 +220,88 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
+        .internal-passes {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #f59e0b;
+        }
+
+        .internal-passes h4 {
+            color: #d97706;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .pass-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+        }
+
+        .mc-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mc-image img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            background: #e5e7eb;
+        }
+
+        .mc-image-name {
+            font-size: 0.85em;
+            font-weight: 600;
+            text-align: center;
+            color: #374151;
+        }
+
+        .pass-item .mc-image.to-mc img {
+            border-color: #f5576c;
+            border-width: 3px;
+            box-shadow: 0 0 0 2px rgba(245, 87, 108, 0.2);
+        }
+
+        .pass-timestamp {
+            flex-shrink: 0;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .pass-arrow {
+            font-size: 1.5em;
+            color: #667eea;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .pass-item {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .mc-image img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .mc-image-name {
+                font-size: 0.8em;
+            }
+        }
+
         .thumbnail {
             width: 100%;
             max-width: 300px;
@@ -371,6 +453,16 @@
             return videoId ? `https://www.youtube.com/embed/${videoId[1]}?rel=0` : null;
         }
 
+        function timeToSeconds(timeStr) {
+            const parts = timeStr.split(':').map(Number);
+            if (parts.length === 2) {
+                return parts[0] * 60 + parts[1];
+            } else if (parts.length === 3) {
+                return parts[0] * 3600 + parts[1] * 60 + parts[2];
+            }
+            return 0;
+        }
+
         function renderTimeline(data) {
             // Umgekehrte Reihenfolge: neuste zuerst (oben)
             const reversedData = [...data].reverse();
@@ -386,6 +478,16 @@
                 let thumbnailHTML = '';
                 let embedHTML = '';
                 
+                let currentLabel = '';
+                if (isCurrentYear) {
+                    currentLabel = '<span class="label">🔥 AKTUELL 🔥</span>';
+                }
+
+                let originLabel = '';
+                if (item.origin) {
+                    originLabel = '<span class="label" style="background: #fbbf24;">⭐ URSPRUNG ⭐</span>';
+                }
+
                 if (item.origin) {
                     // YouTube Embed für Origin Video
                     const embedUrl = getYouTubeEmbedUrl(item.videoLink);
@@ -398,23 +500,6 @@
                             </div>
                         `;
                     }
-                } else {
-                    if (item.thumbnail) {
-                        thumbnailHTML = `<img src="${item.thumbnail}" alt="Thumbnail" class="thumbnail">`;
-                    }
-                }
-
-                let currentLabel = '';
-                if (isCurrentYear) {
-                    currentLabel = '<span class="label">🔥 AKTUELL 🔥</span>';
-                }
-
-                let originLabel = '';
-                if (item.origin) {
-                    originLabel = '<span class="label" style="background: #fbbf24;">⭐ URSPRUNG ⭐</span>';
-                }
-
-                if (item.origin) {
                     itemDiv.innerHTML = `
                         <div class="content origin-item">
                             ${originLabel}
@@ -425,6 +510,9 @@
                         </div>
                     `;
                 } else {
+                    if (item.thumbnail) {
+                        thumbnailHTML = `<img src="${item.thumbnail}" alt="Thumbnail" class="thumbnail">`;
+                    }
                     itemDiv.innerHTML = `
                         <div class="content ${isCurrentYear ? 'current' : ''}">
                             ${currentLabel}
@@ -435,7 +523,7 @@
                                 <span class="mc">${item.to}</span>
                             </div>
                             ${item.timestamp ? `<div class="timestamp">⏱️ ${item.timestamp}</div>` : ''}
-                            <a href="${item.videoLink}" target="_blank" class="video-link">🎥 Zum Video</a>
+                            <a href="${item.videoLink}${item.timestamp ? '?t=' + timeToSeconds(item.timestamp) : ''}" target="_blank" class="video-link">🎥 Zum Video</a>
                             ${thumbnailHTML}
                         </div>
                     `;

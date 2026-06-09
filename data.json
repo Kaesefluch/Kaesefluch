@@ -1,33 +1,82 @@
 [
   {
-    "from": "MC 1",
-    "to": "MC 2",
-    "videoLink": "https://www.youtube.com/watch?v=BEISPIEL1",
-    "timestamp": "12:45",
-    "date": "2024-01-15",
-    "thumbnail": ""
-  },
-  {
-    "from": "MC 2",
-    "to": "MC 3",
-    "videoLink": "https://www.youtube.com/watch?v=BEISPIEL2",
-    "timestamp": "08:30",
-    "date": "2024-02-20",
-    "thumbnail": ""
-  },
-  {
-    "from": "MC 3",
-    "to": "MC 4",
-    "videoLink": "https://www.youtube.com/watch?v=BEISPIEL3",
-    "timestamp": "15:12",
-    "date": "2024-03-10",
-    "thumbnail": ""
-  },
-  {
     "origin": true,
     "title": "Wie alles begann 🌟",
     "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "2:22",
     "date": "2024-01-01",
-    "description": "Das Ursprungsvideo, wo der Käsefluch zum ersten Mal erwähnt wurde"
+    "description": "Das Ursprungsvideo - hier bekommt Jamaika Klaus den initialen Käsefluch gesetzt"
+  },
+  {
+    "from": "Jamaika Klaus",
+    "to": "Stylz",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "16:53",
+    "date": "2024-01-01",
+    "thumbnail": ""
+  },
+  {
+    "from": "Stylz",
+    "to": "Şer",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "16:55",
+    "date": "2024-01-01",
+    "thumbnail": ""
+  },
+  {
+    "from": "Şer",
+    "to": "Stylz",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "17:31",
+    "date": "2024-01-01",
+    "thumbnail": ""
+  },
+  {
+    "from": "Stylz",
+    "to": "Jamaika Klaus",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "17:33",
+    "date": "2024-01-01",
+    "thumbnail": ""
+  },
+  {
+    "from": "Jamaika Klaus",
+    "to": "Jilly",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "17:39",
+    "date": "2024-01-01",
+    "thumbnail": ""
+  },
+  {
+    "from": "Jilly",
+    "to": "Şer",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "18:06",
+    "date": "2024-01-01",
+    "thumbnail": ""
+  },
+  {
+    "from": "Şer",
+    "to": "Bault",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "18:14",
+    "date": "2024-01-01",
+    "thumbnail": ""
+  },
+  {
+    "from": "Bault",
+    "to": "Jamaika Klaus",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "18:16",
+    "date": "2024-01-01",
+    "thumbnail": ""
+  },
+  {
+    "from": "Jamaika Klaus",
+    "to": "Bault",
+    "videoLink": "https://www.youtube.com/watch?v=ANHpf2yWVfM",
+    "timestamp": "19:14",
+    "date": "2024-01-01",
+    "thumbnail": ""
   }
 ]
